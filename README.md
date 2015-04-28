@@ -118,4 +118,8 @@ Again, due to time constraints no care has been given on UI.
 The report builder has been created as a service that lives under `app > services`.
 The reason for this was that the report builder doesn't fit very nicely in the MVC framework, so has instead been created as a PORO and handled like an additional service to keep the code clean and DRY.
 
-Throughout the code you will find methods like "transactions" or "successfull_transactions". Such methods could easily (and should) be consolidated into a single method to keep the code DRY. Due to time constraints such modifications/planning has not been possible. 
+Throughout the code you will find methods like "transactions" or "successfull_transactions". Such methods could easily (and should) be consolidated into a single method to keep the code DRY. Due to time constraints such modifications/planning has not been possible.
+
+While creating the app I extensively used the rails scaffold generator to save time.
+Though it is possible to create new data like `Users` or `Tabs`, the app has not yet been wired to create associations like a `User_Tab` record if the User were to open a new Tab with a Venue.
+For now all data is simply populated via the seed.rb file.

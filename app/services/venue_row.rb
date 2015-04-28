@@ -9,10 +9,6 @@ class VenueRow
     self.transactions = 1
   end
 
-  # def name
-  #   name
-  # end
-
   def self.all
     @@instance_collector
   end
@@ -20,36 +16,4 @@ class VenueRow
   def self.find_by_venue_name(venue_name)
     VenueRow.all.find { |vrow| vrow.name == venue_name }
   end
-  # def initialize(params)
-  #   @card = params[:card]
-  #   @amount = params[:amount]
-  #   @email = params[:email]
-  # end
-
-  
-  # private
-
-  
-
-  # def external_charge_service
-  #   Stripe::Charge
-  # end
-
-  # def external_customer_service
-  #   Stripe::Customer
-  # end
-
-  # def charge_attributes
-  #   {
-  #     amount: amount,
-  #     card: card
-  #   }
-  # end
-
-  # def customer_attributes
-  #   {
-  #     email: email,
-  #     card: card
-  #   }
-  # end
 end
