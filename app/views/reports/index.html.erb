@@ -1,0 +1,39 @@
+<h1>Report Generator</h1>
+<p>Please select a date range to generate report</p>
+
+
+<%= form_tag results_reports_path, { :method => :get, :remote=>true } do %>
+From:
+  <input
+    type="date"
+    name="date_from"
+    placeholder="dd/mm/yyyy"
+    onkeyup="
+        var v = this.value;
+        if (v.match(/^\d{2}$/) !== null) {
+            this.value = v + '/';
+        } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+            this.value = v + '/';
+        }"
+    maxlength="10"
+><br/>
+To:
+  <input
+    type="date"
+    name="date_to"
+    placeholder="dd/mm/yyyy"
+    onkeyup="
+        var v = this.value;
+        if (v.match(/^\d{2}$/) !== null) {
+            this.value = v + '/';
+        } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+            this.value = v + '/';
+        }"
+    maxlength="10"
+>
+ 
+  <%= submit_tag "Generate" %>
+<% end %>
+
+<div id="results_table"></div>
+

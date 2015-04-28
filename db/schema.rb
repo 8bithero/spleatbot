@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427144447) do
+ActiveRecord::Schema.define(version: 20150427171722) do
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "user_tab_id"
+    t.decimal  "value"
+    t.boolean  "success"
+    t.date     "payment_date"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "payments", ["user_tab_id"], name: "index_payments_on_user_tab_id"
 
   create_table "tabs", force: :cascade do |t|
     t.integer  "venue_id"
@@ -20,6 +31,16 @@ ActiveRecord::Schema.define(version: 20150427144447) do
   end
 
   add_index "tabs", ["venue_id"], name: "index_tabs_on_venue_id"
+
+  create_table "user_tabs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "tab_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_tabs", ["tab_id"], name: "index_user_tabs_on_tab_id"
+  add_index "user_tabs", ["user_id"], name: "index_user_tabs_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -30,7 +51,6 @@ ActiveRecord::Schema.define(version: 20150427144447) do
 
   create_table "venues", force: :cascade do |t|
     t.string   "name"
-    t.string   "account"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

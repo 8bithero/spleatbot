@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <td>Venue Name</td>
+      <td>Transactions</td>
+      <td>Value</td>
+    </tr>
+  </thead>
+  <% venue_rows.each do |row| %>
+    <tr>
+      <td><%= row.name %></td>
+      <td><%= row.transactions %></td>
+      <td><%= row.value %></td>
+    </tr>
+  <% end %>
+</table>
